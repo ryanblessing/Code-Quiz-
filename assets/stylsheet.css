@@ -1,0 +1,29 @@
+* {
+    background-color: tan;
+    margin: auto;
+    padding: auto;
+}
+.container{
+    margin: 2px;
+    width: 80%;
+    height: 80%;
+    text-align: center;
+}
+
+.main-header{
+    font-size: 36px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+}
+
+#welcome{
+    font-size: 26px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    
+
+}
+
+.container h3 {
+    text-align: right;
+}
