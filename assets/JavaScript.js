@@ -13,7 +13,7 @@ var timerEl = document.getElementById('timer');
 var questions = [
     {q: 'The DOM is built into the JavaScript Language.', a: 't'},
     {q: 'event.preventDefault() doesnt stop your page from resetting up submission.', a: 'f'},
-    {q: 'The DOm event object refers to the HTML element that was interacted with to dispatch the event.', a: 't'},
+    {q: 'The DOM event object refers to the HTML element that was interacted with to dispatch the event.', a: 't'},
     {q: 'Local.storage() does support saving arrays.', a: 't'}
 ];
 
@@ -36,11 +36,6 @@ for (var i = 0; i < questions.length; i++) {
     }
 };
 
-//message after your done with quiz
-var message =
-'Congradulatiuons on completing this quiz! hope you had fun!!'
-var words = message.split(' ');
-
 //timer for quiz
 function timer() {
     var timeLeft = 90;
@@ -57,6 +52,11 @@ function timer() {
             }
     },1000);
 }
+//message after your done with quiz
+var message =
+'Congradulatiuons on completing this quiz! hope you had fun!!'
+var words = message.split(' ');
+
  
 
 // questions for the quiz
