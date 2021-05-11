@@ -1,9 +1,10 @@
 //my targets connecting me to HTML
 var startBtn = document.getElementById('start');
 var timerEl = document.getElementById('timer');
+var messageEl = document.getElementById('message');
 var questions = [
     {q: 'The DOM is built into the JavaScript Language.', a: 't'},
-    {q: 'event.preventDefault() doesnt stop your page from resetting up submission.', a: 'f'},
+    {q: 'event.preventDefault() does not stop your page from resetting up submission.', a: 'f'},
     {q: 'The DOM event object refers to the HTML element that was interacted with to dispatch the event.', a: 't'},
     {q: 'Local.storage() does support saving arrays.', a: 't'}
 ];
@@ -11,14 +12,14 @@ var questions = [
 
 //message after your done with quiz
 var message =
-'Congradulations on completing this quiz! hope you had fun!!'
+'Congratulations on completing this quiz! hope you had fun!!'
 var words = message.split(' ');
 
 
 // set score to begin quiz with
 var score = 0;
 
-// loop to go from guestion to guestion
+// loop to go from question to question
 function startBtn() {
 for (var i = 0; i < questions.length; i++) {
     var answer = confirm(questions[i].q);
@@ -57,4 +58,16 @@ var timerEl = function() {
     }, 1000);
 }
 
-startBtn.onclick = timerEl
+function displayMessage() {
+    var wordCount = 0;
+    var message = setInterval(function(){
+        if (words[wordCount]=== undefined) {
+            clearInterval(message);
+        } else {
+            messageEl.textContent = words[wordCount];
+            wordCount ++
+        }
+    }, 500); 
+}
+    
+startBtn.onclick = timerEl;
