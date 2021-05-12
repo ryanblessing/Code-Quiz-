@@ -2,7 +2,10 @@
 var startBtn = document.getElementById('start');
 var timerEl = document.getElementById('timer');
 var messageEl = document.getElementById('message');
-var testDisplayEl = document.getElementById('test-display');
+var testDisplayEl = document.getElementsByClassName('#test-display');
+var dataInputEl = document.getElementsByClassName('#storage');
+var playerName = document.getElementById('email');
+var playerScore = document.getElementById('score');
 var questions = [
     {q: 'The DOM is built into the JavaScript Language.', a: 't'},
     {q: 'event.preventDefault() does not stop your page from resetting up submission.', a: 'f'},
@@ -40,7 +43,7 @@ for (var i = 0; i < questions.length; i++) {
 
 //timer for quiz finished
 function timer() {
-    var timeLeft = 60;
+    var timeLeft = 3;
     
     var timeInterval = setInterval(function(){ 
 
@@ -58,8 +61,6 @@ function timer() {
             displayMessage();
             }
     }, 1000);
-
-    startBtn.onclick = timerEl
 }
 //function to make the quiz pop up?
 function displayQuiz() {
@@ -79,7 +80,24 @@ function displayMessage() {
         }
     }, 500); 
 };
-   
+
+//function to retrieve values out of storage
+function storage() {
+    var playerName = localStorage.getItem('email');
+    var playerScore = localStorage.getItem('score');
+    if(playerName === null || playerScore === null) {
+        return;
+    }
+    playerName.textContent = email;
+    playerScore.textContent = score;
+};
+
+//local storage
+localStorage.setItem('email', playerName);
+localStorage.setItem('score', playerScore);
+
+//calling storage function
+//storage();
 
 
 //create event listeners

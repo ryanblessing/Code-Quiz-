@@ -39,8 +39,21 @@
     font-size: 22px;
 }
 
-#test-display {
+#test-display .button {
     text-align: center;
+}
+
+.highscore {
+    border: black;
+    border-style: solid;
+    background-color: antiquewhite;
+    text-align: right;
+}
+
+#email,
+#score {
+    color: black;
+    font-size: 36px;
 }
 
 .footer {
