@@ -31,8 +31,16 @@
    ;
 }
 
-#timer h3 {
+#timer {
     text-align: right;
+}
+
+.message {
+    font-size: 22px;
+}
+
+#test-display {
+    text-align: center;
 }
 
 .footer {

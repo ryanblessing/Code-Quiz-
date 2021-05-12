@@ -2,6 +2,7 @@
 var startBtn = document.getElementById('start');
 var timerEl = document.getElementById('timer');
 var messageEl = document.getElementById('message');
+var testDisplayEl = document.getElementById('test-display');
 var questions = [
     {q: 'The DOM is built into the JavaScript Language.', a: 't'},
     {q: 'event.preventDefault() does not stop your page from resetting up submission.', a: 'f'},
@@ -19,8 +20,8 @@ var words = message.split(' ');
 // set score to begin quiz with
 var score = 0;
 
-// loop to go from question to question
-function startBtn() {
+//loop to go from question to question
+function start() {
 for (var i = 0; i < questions.length; i++) {
     var answer = confirm(questions[i].q);
 
@@ -37,17 +38,18 @@ for (var i = 0; i < questions.length; i++) {
       }
     };
 
-//timer for quiz
-var timerEl = function() {
+//timer for quiz finished
+function timer() {
     var timeLeft = 60;
+    
     var timeInterval = setInterval(function(){ 
-        
-        if (timeLeft > 1) {
-            timerEl.textContent = timeLeft +'time remaining ';
+
+        if (timeLeft >= 1) {
+            timerEl.textContent = timeLeft +' time remaining';
             timeLeft--;
         } 
-        else if (timeLeft === 1) {
-            timerEl.textContent = timeLeft + 'No Time Remaining';
+        else if (timeLeft === 0) {
+            timerEl.textContent = timeLeft + ' No Time Remaining';
             timeLeft--; 
         }
         else {
@@ -56,18 +58,31 @@ var timerEl = function() {
             displayMessage();
             }
     }, 1000);
+
+    startBtn.onclick = timerEl
+}
+//function to make the quiz pop up?
+function displayQuiz() {
+    testDisplay.className = 'testDisplay'
+    testDisplayEl.setAttribute("test");
 }
 
+//message for after the quiz is done
 function displayMessage() {
     var wordCount = 0;
     var message = setInterval(function(){
-        if (words[wordCount]=== undefined) {
+        if (words[wordCount] === undefined) {
             clearInterval(message);
         } else {
             messageEl.textContent = words[wordCount];
             wordCount ++
         }
     }, 500); 
-}
-    
-startBtn.onclick = timerEl;
+};
+   
+
+
+//create event listeners
+startBtn.onclick = timer
+
+
