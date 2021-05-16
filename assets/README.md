@@ -15,6 +15,9 @@ for every wrong answer you will loose time. Do you have what it takes to finish 
 check YOUR score at the end and compare yourself to others! Have fun!!
 
 
+![Screenshot (25)](https://user-images.githubusercontent.com/80354015/118413986-be911d00-b667-11eb-8a2e-1728d5803ff7.png)
+![Screenshot (26)](https://user-images.githubusercontent.com/80354015/118413987-bf29b380-b667-11eb-9fed-6fae5c4bb89a.png)
+
 // active gitpages website!
 https://ryanblessing.github.io/Code-Quiz-/
 
