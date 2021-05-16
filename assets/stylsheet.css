@@ -22,10 +22,6 @@
 
 }
 
-.form {
-    text-align: center;
-}
-
 #start {
    font-size: 18px;
    ;
@@ -35,26 +31,15 @@
     text-align: right;
 }
 
-.message {
+#message {
     font-size: 22px;
 }
 
-#test-display .button {
-    text-align: center;
+/* need to set the questions to this to hid and get they to start*/
+.hide {
+    display: none;
 }
 
-.highscore {
-    border: black;
-    border-style: solid;
-    background-color: antiquewhite;
-    text-align: right;
-}
-
-#email,
-#score {
-    color: black;
-    font-size: 36px;
-}
 
 .footer {
     text-align: center;
