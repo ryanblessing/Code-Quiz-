@@ -111,3 +111,7 @@ function renderLastScore(){
 //create event listenersS
 startBtn.onclick = timer
 
+
+
+//Im aware that the code doesnt work, i couldnt figure out the way to make my questions pop up coorectly without it 
+//coming up as a alert question, i will be coming back once i figure out my shortcomings to fix it and push it up to git
