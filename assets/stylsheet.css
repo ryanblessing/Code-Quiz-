@@ -1,29 +1,46 @@
 * {
-    background-color: tan;
-    margin: auto;
-    padding: auto;
+    background-color: white;
+    padding: 20px 2px;
+    
 }
 .container{
     margin: 2px;
-    width: 80%;
-    height: 80%;
     text-align: center;
 }
 
-.main-header{
-    font-size: 36px;
+#main-header{
+    font-size: 45px;
     font-family: Arial, Helvetica, sans-serif;
     color: black;
 }
 
 #welcome{
-    font-size: 26px;
+    font-size: 28px;
     font-family: Arial, Helvetica, sans-serif;
     color: black;
-    
+    text-align: center;
 
 }
 
-.container h3 {
+#start {
+   font-size: 18px;
+   ;
+}
+
+#timer {
     text-align: right;
+}
+
+#message {
+    font-size: 22px;
+}
+
+/* need to set the questions to this to hid and get they to start*/
+.hide {
+    display: none;
+}
+
+
+.footer {
+    text-align: center;
 }
