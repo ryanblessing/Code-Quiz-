@@ -3,44 +3,14 @@
     padding: 20px 2px;
     
 }
-.container{
-    margin: 2px;
-    text-align: center;
-}
-
-#main-header{
-    font-size: 45px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: black;
-}
-
-#welcome{
-    font-size: 28px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: black;
-    text-align: center;
-
-}
-
-#start {
-   font-size: 18px;
-   ;
-}
-
-#timer {
-    text-align: right;
-}
 
 #message {
     font-size: 22px;
 }
 
 /* need to set the questions to this to hid and get they to start*/
-.hide {
+#hide {
     display: none;
 }
 
 
-.footer {
-    text-align: center;
-}
