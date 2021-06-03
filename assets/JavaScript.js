@@ -1,73 +1,139 @@
-// questions for the quiz
+var quiz = [{
+        question1: 'The DOM is built into the JavaScript Language.',
+        choices: ["True", "False"],
+        answer: 'True'
+    },
 
-// True or False
-//1.)DOM is built into the JavaScript Language-T
-//2.)event.preventDefault() doesnt stop your page from resetting up submission-F
-//3.The DOm event object refers to the HTML element that was interacted
-// with to dispatch the event-T
-//4. Local.storage() does support saving arrays-F
+    {
+        question2: 'event.preventDefault() does not stop your page from resetting up submission.',
+        choices: ["True", "False"],
+        answer: 'False'
+    },
 
-//my targets connecting me to HTML
-var startBtn = document.getElementById('start');
-var timerEl = document.getElementById('timer');
-var questions = [
-    {q: 'The DOM is built into the JavaScript Language.', a: 't'},
-    {q: 'event.preventDefault() doesnt stop your page from resetting up submission.', a: 'f'},
-    {q: 'The DOM event object refers to the HTML element that was interacted with to dispatch the event.', a: 't'},
-    {q: 'Local.storage() does support saving arrays.', a: 't'}
-];
+    {
+        question3: 'The DOM event object refers to the HTML element that was interacted with to dispatch the event.',
+        choices: ["True", "False"],
+        answer: 'True'
+    },
 
-// set score to begin quiz with
-var score = 0;
-
-// loop to go from guestion to guestion
-function startBtn() {
-for (var i = 0; i < questions.length; i++) {
-    var answer = confirm(questions[i].q);
-
-    if (
-        (answer === true && questions[i].a === 't') ||
-       (answer === false && questions[i].a === 'f')
-    ){
-        score++;
-        alert('Correct!');
-    } else{'Wrong'};
-        timerEl--;
+    {
+        question4: 'Local.storage() does support saving arrays.',
+        choices: ["True", "False"],
+        answer: 'True'
     }
-};
+];
+//element to start quiz
+var startBtn = document.getElementById("start-quiz");
+//answers element
+var trueBtnEl = document.getElementById("trueBtn");
+var falseBtnEl = document.getElementById("falseBtn");
+//timer element
+var timeDisplay = document.getElementById("timer");
+var messageEl = document.getElementById('message');
+var quizDisplay = document.getElementById('quiz-display');
 
-//timer for quiz
-function timer() {
-    var timeLeft = 90;
+document.addEventListener('DOMContentLoaded', () => {
+    //variable
+    const timeDisplay = document.getElementById("timer");
+    const startBtn = document.getElementById("start-quiz");
 
-    var timeInterval = setInterval(function(){
-        if (timeLeft >= 1){
-            timerEl.textContent = timeLeft + 'time remaining'
-            timeLeft--;
-        }
-        else{
-            timerEl.textContent = ' '
-            clearInterval(timeInterval)
-            displayMessage();
+    function timer() {
+        var timeLeft = 40;
+        var timeInterval = setInterval(function () {
+
+            if (timeLeft >= 1) {
+                timeDisplay.textContent = timeLeft + ' time remaining';
+                timeLeft--;
+            } else if (timeLeft === 0) {
+                timeDisplay.textContent = timeLeft + ' No Time Remaining';
+                timeLeft--;
+            } else {
+                timeDisplay.textContent = ' ';
+                clearInterval(timeInterval);
+                displayMessage = ''
             }
-    },1000);
+        }, 1000);
+    }
+
+    startBtn.addEventListener("click", timer)
+})
+
+//displaying the quiz and hiding before you start
+function questionsDisplayBlock() {
+    startBtn.onclick = function () {
+        document.getElementById("questions").setAttribute("quiz", "hide")
+        document.getElementById("start-quiz").removeAttribute("hide")
+    }
+
+    function startQuiz() {
+        
+
+        //question 1
+        document.getElementById("questions").innerHTML = quiz[0].question1
+
+        //answer
+        document.getElementById("trueBtn").innerHTML = quiz[0].answer[0]
+        document.getElementById("falseBtn").innerHTML = quiz[0].answer[1]
+
+        document.getElementById("answers").addEventListener("click", question2)
+        trueBtnEl.addEventListener("click", function () {
+        falseBtnEl.addEventListener("click", function () {
+            if(answer === false){
+                timeLeft = -10
+            } 
+            })
+        })
+    };
+    startQuiz()
+
+    function question2() {
+        document.getElementById("questions").innerHTML = quiz[1].question2
+
+        document.getElementById("trueBtn").innerHTML = quiz[1].answer[0]
+        document.getElementById("falseBtn").innerHTML = quiz[1].answer[1]
+
+        document.getElementById("answers").addEventListener("click", question3)
+
+    }
+
+    function question3() {
+        document.getElementById("questions").innerHTML = quiz[2].question3
+
+        document.getElementById("trueBtn").innerHTML = quiz[2].answer[0]
+        document.getElementById("falseBtn").innerHTML = quiz[2].answer[1]
+
+        document.getElementById("answers").addEventListener("click", question4)
+
+
+    };
+
+
+function question4() {
+    document.getElementById("questions").innerHTML = quiz[3].question4
+
+    document.getElementById("trueBtn").innerHTML = quiz[3].answer[0]
+    document.getElementById("falseBtn").innerHTML = quiz[3].answer[1]
+
+    startBtn.addEventListener("click", startQuiz)
+
+};
 }
-//message after your done with quiz
+
+
 var message =
-'Congradulatiuons on completing this quiz! hope you had fun!!'
+'Congratulations on completing this quiz! hope you had fun!!'
 var words = message.split(' ');
 
- 
+function displayMessage() {
+    var wordCount = 0;
+    var message = setInterval(function () {
+        if (words[wordCount] === undefined) {
+            clearInterval(message);
+        } else {
+            messageEl.textContent = words[wordCount];
+            wordCount++
+        }
+    }, 500);
+};
 
-// questions for the quiz
-
-// True or False
-//1.)DOM is built into the JavaScript Language-T
-//2.)event.preventDefault() doesnt stop your page from resetting up submission-F
-//3.The DOm event object refers to the HTML element that was interacted
-// with to dispatch the event-T
-//4. Local.storage() does support saving arrays-F
-
-
-// click button to start timer
-startBtn.onclick = timer;
+questionsDisplayBlock();
